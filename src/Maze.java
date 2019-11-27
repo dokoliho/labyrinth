@@ -95,11 +95,11 @@ public class Maze {
 
 
     public int width() {
-        return maze[0].length;
+        return maze[0].length+2;
     }
 
     public int height() {
-        return maze.length;
+        return maze.length+2;
     }
 
     private int turnLeft(int startDir) {

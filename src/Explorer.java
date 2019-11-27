@@ -37,10 +37,10 @@ public class Explorer {
     }
 
     private void initStringArray(Maze z) {
-        mazeMap = new String[z.height()+2];
-        mazeMap[0] = mazeMap[mazeMap.length-1] = "#".repeat(z.width()+2);
+        mazeMap = new String[z.height()];
+        mazeMap[0] = mazeMap[mazeMap.length-1] = "#".repeat(z.width());
         for (int i=1; i<mazeMap.length-1;i++)
-            mazeMap[i] = "#" + " ".repeat(z.width()) + "#";
+            mazeMap[i] = "#" + ".".repeat(z.width()-2) + "#";
     }
 
     private boolean doJunction(int[] exits) {
@@ -163,7 +163,7 @@ public class Explorer {
         boolean result = maze.isWall(direction);
         Position pos = next(direction);
         StringBuilder sb = new StringBuilder(mazeMap[pos.y+1]);
-        sb.setCharAt(pos.x+1, (result?'#':'.'));
+        sb.setCharAt(pos.x+1, (result?'#':' '));
         mazeMap[pos.y+1] = sb.toString();
         return result;
     }
